@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 3703626774769992053}
   - component: {fileID: 3703626774769992052}
   - component: {fileID: -7741392564128674262}
+  - component: {fileID: 5206973813688767408}
+  - component: {fileID: 1795626864624509302}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,4 +106,46 @@ MonoBehaviour:
   death_particles: {fileID: 0}
   hit_particles: {fileID: 8619383646533457266, guid: 963201db8dd5ce34fa087e69b37ac845, type: 3}
   dash_particles: {fileID: 8619383646533457266, guid: d4d2be12b22315f408ef1943ff6f40de, type: 3}
+  health0: {fileID: 21300000, guid: 2426f69ffce48a540b013f1a3f710d53, type: 3}
+  health1: {fileID: 21300000, guid: 63b1ad088b9acfe49aa31e52b4ee9bde, type: 3}
+  health2: {fileID: 21300000, guid: 9117ac7d8e5cdb84c99e44d8c5f9d4ca, type: 3}
+  health3: {fileID: 21300000, guid: 24a3964bb73831647bdc24fc3075af60, type: 3}
   cam: {fileID: 0}
+  battery: {fileID: 0}
+--- !u!58 &5206973813688767408
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703626774769992055}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
+--- !u!50 &1795626864624509302
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703626774769992055}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

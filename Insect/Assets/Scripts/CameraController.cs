@@ -24,5 +24,10 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.Lerp(transform.position, new Vector3(0,0,-10), lerpStrength * Time.deltaTime);
+
+        if (Vector3.Distance(transform.position, new Vector3(0,0,-10)) < 0.01f)
+        {
+            transform.position = new Vector3(0,0,-10);
+        }
     }
 }
