@@ -5630,7 +5630,7 @@ MonoBehaviour:
   dash_cooldown: 1
   dash_power: 0.7
   death_particles: {fileID: 0}
-  hit_particles: {fileID: 0}
+  hit_particles: {fileID: 8619383646533457266, guid: 963201db8dd5ce34fa087e69b37ac845, type: 3}
   dash_particles: {fileID: 8619383646533457266, guid: d4d2be12b22315f408ef1943ff6f40de, type: 3}
 --- !u!1001 &3703626773845056582
 PrefabInstance:
