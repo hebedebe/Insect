@@ -45,6 +45,8 @@ public class CentipedeController : MonoBehaviour
     bool isSetup = true;
     [SerializeField]
     float slimeDelay = 1f;
+    [SerializeField]
+    bool slimeTrail = false;
 
     //private variables
     Transform player;
@@ -95,7 +97,7 @@ public class CentipedeController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (slimeTimer > slimeDelay)
+        if (slimeTimer > slimeDelay && slimeTrail)
         {
             GameObject slimeObj = Instantiate(slime, transform);
             slimeObj.transform.parent = null;
@@ -105,7 +107,7 @@ public class CentipedeController : MonoBehaviour
         }
         if (isHead)
         {
-            
+
 
             if (isSetup)
             {
@@ -136,8 +138,8 @@ public class CentipedeController : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.fixedDeltaTime * rotSpeed);
 
 
-                if (Vector3.Distance(transform.position, target.transform.position) + moveSpeed * Time.fixedDeltaTime > minDist)     
-                   transform.position += transform.right * moveSpeed * Time.fixedDeltaTime;
+                if (Vector3.Distance(transform.position, target.transform.position) + moveSpeed * Time.fixedDeltaTime > minDist)
+                    transform.position += transform.right * moveSpeed * Time.fixedDeltaTime;
             }
             else
             {
