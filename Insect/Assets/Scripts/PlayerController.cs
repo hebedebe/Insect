@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
             attack_timer = 0;
             GameObject atk = Instantiate(attack, attack_position);
             atk.transform.parent = null;
-            Destroy(atk, 1f);
+            Destroy(atk, 0.12f);
         }
     }
 

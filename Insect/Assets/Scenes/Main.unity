@@ -5694,6 +5694,10 @@ PrefabInstance:
       propertyPath: bob_threshold
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: -7741392564128674262, guid: 006f9daeed94a7a4c9a741e730533df3, type: 3}
+      propertyPath: attack_cooldown
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2370789584662097546, guid: 006f9daeed94a7a4c9a741e730533df3, type: 3}
       propertyPath: m_WrapMode
       value: 2
