@@ -5490,7 +5490,6 @@ GameObject:
   - component: {fileID: 1723503615}
   - component: {fileID: 1723503618}
   - component: {fileID: 1723503619}
-  - component: {fileID: 1723503620}
   - component: {fileID: 1723503621}
   - component: {fileID: 1723503622}
   m_Layer: 0
@@ -5617,23 +5616,7 @@ MonoBehaviour:
   m_PixelSnapping: 1
   m_CropFrameX: 1
   m_CropFrameY: 1
-  m_StretchFill: 0
---- !u!123 &1723503620
-LensFlare:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723503614}
-  m_Enabled: 0
-  m_Flare: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_Brightness: 1
-  m_FadeSpeed: 3
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 6
-  m_Directional: 0
+  m_StretchFill: 1
 --- !u!114 &1723503621
 MonoBehaviour:
   m_ObjectHideFlags: 0
