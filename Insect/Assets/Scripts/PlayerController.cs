@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float hit_cooldown = 0.1f;
 
+    [Header("Attack")]
+    [SerializeField]
+    float attack_cooldown = 0.15f;
+
     [Header("Inventory and Equipped Items")]
     public int chips = 0;
 
@@ -29,6 +33,8 @@ public class PlayerController : MonoBehaviour
     GameObject hit_particles;
     [SerializeField]
     GameObject dash_particles;
+    [SerializeField]
+    GameObject attack;
 
     [Header("Animation")]
     [SerializeField]
@@ -53,12 +59,15 @@ public class PlayerController : MonoBehaviour
     GameObject cam;
     [SerializeField]
     SpriteRenderer battery;
+    [SerializeField]
+    Transform attack_position;
     Transform sprite;
-    Animation anim;
+    Transform dash_direction;
 
     //Timer variables
     float dash_timer;
     float hit_timer;
+    float attack_timer;
 
     //Tracking variables
     bool bob_down;
@@ -67,16 +76,29 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         sprite = transform.GetChild(0).transform;
-        anim = sprite.gameObject.GetComponent<Animation>();
+        dash_direction = transform.GetChild(1).transform;
     }
 
     private void Update()
     {
-        //PointAtMouse();
+        PointAtMouse();
         Move();
         Dash();
         Battery();
         Animate();
+        Attack();
+    }
+
+    void Attack()
+    {
+        attack_timer += Time.deltaTime;
+        if (attack_timer >= attack_cooldown && Input.GetMouseButtonDown(0))
+        {
+            attack_timer = 0;
+            GameObject atk = Instantiate(attack, attack_position);
+            atk.transform.parent = null;
+            Destroy(atk, 1f);
+        }
     }
 
     void Animate()
@@ -157,7 +179,7 @@ public class PlayerController : MonoBehaviour
             Destroy(dash, 1);
 
             dash_timer = 0;
-            transform.position += transform.up * dash_power;
+            transform.position += dash_direction.transform.up * dash_power;
 
             GameObject dash_arrive = Instantiate(dash_particles, transform);
 
@@ -176,7 +198,7 @@ public class PlayerController : MonoBehaviour
         mousePos.y = mousePos.y - objectPos.y;
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
+        dash_direction.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
     }
 
 
