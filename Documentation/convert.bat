@@ -1,0 +1,6 @@
+@echo off
+echo Converting changelog...
+convertChangelog.bat
+echo Converting insect...
+convertInsect.bat
+echo Done.
