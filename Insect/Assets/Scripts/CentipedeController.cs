@@ -100,7 +100,7 @@ public class CentipedeController : MonoBehaviour
             GameObject slimeObj = Instantiate(slime, transform);
             slimeObj.transform.parent = null;
             slimeObj.transform.position = new Vector3(transform.position.x, transform.position.y, 1);
-            Destroy(slimeObj, 7);
+            Destroy(slimeObj, 5);
             slimeTimer = 0;
         }
         if (isHead)
