@@ -30,6 +30,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     GameObject dash_particles;
 
+    [Header("Animation")]
+    [SerializeField]
+    float bob_strength;
+    [SerializeField]
+    float bob_speed;
+    [SerializeField]
+    float bob_threshold = 0.01f;
+
     [Header("Sprites")]
     [SerializeField]
     Sprite health0;
@@ -45,17 +53,51 @@ public class PlayerController : MonoBehaviour
     GameObject cam;
     [SerializeField]
     SpriteRenderer battery;
+    Transform sprite;
+    Animation anim;
 
     //Timer variables
     float dash_timer;
     float hit_timer;
 
+    //Tracking variables
+    bool bob_down;
+    float anim_progress;
+
+    private void Start()
+    {
+        sprite = transform.GetChild(0).transform;
+        anim = sprite.gameObject.GetComponent<Animation>();
+    }
+
     private void Update()
     {
-        PointAtMouse();
+        //PointAtMouse();
         Move();
         Dash();
         Battery();
+        Animate();
+    }
+
+    void Animate()
+    {
+        if (bob_down)
+        {
+            anim_progress -= bob_speed * Time.deltaTime;
+            if (Vector3.Distance(transform.position - new Vector3(0, bob_strength, 0), sprite.position) < bob_threshold)
+            {
+                bob_down = false;
+            }
+        } else
+        {
+            anim_progress += bob_speed * Time.deltaTime;
+            if (Vector3.Distance(transform.position + new Vector3(0, bob_strength, 0), sprite.position) < bob_threshold)
+            {
+                bob_down = true;
+            }
+        }
+
+        sprite.position = Vector3.Slerp(transform.position - new Vector3(0, bob_strength, 0), transform.position + new Vector3(0, bob_strength, 0), anim_progress);
     }
 
     public void Damage()
