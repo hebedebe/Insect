@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
             attack_timer = 0;
             GameObject atk = Instantiate(attack, attack_position);
             atk.transform.parent = null;
-            Destroy(atk, 0.12f);
+            Destroy(atk, 0.1f);
         }
     }
 
@@ -199,6 +199,14 @@ public class PlayerController : MonoBehaviour
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         dash_direction.rotation = Quaternion.Euler(new Vector3(0, 0, angle-90));
+
+        if (mousePos.x > transform.position.x)
+        {
+            sprite.localScale = new Vector3(1, 1, 1);
+        } else
+        {
+            sprite.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
 
