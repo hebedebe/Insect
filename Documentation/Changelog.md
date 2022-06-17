@@ -42,3 +42,13 @@ On the 14th of June, the USB containing the project was corrupted, along with al
 * Implemented player damage effects
 * Player emits blood particles upon being damaged
 * Camera shake when player is damaged
+
+#### Log 16/06/2022
+* Created player attack animation
+* Player attack can damage enemies
+* Created `EnemySpawner` script
+* Created `GameSetup` script that enables vsync on game start
+* Changed player blood particle effects to soul particles
+* Player dash particles are now white
+* Added a white translucent trail to the player
+* Created 
