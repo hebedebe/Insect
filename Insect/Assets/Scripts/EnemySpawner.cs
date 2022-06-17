@@ -18,9 +18,12 @@ public class EnemySpawner : MonoBehaviour
 
     float centipedeTimer = 0;
 
+    Transform spawnPos;
+
     private void Start()
     {
         centipedeTimer = centipedeDelay;
+        spawnPos = transform.GetChild(0);
     }
 
     void FixedUpdate()
@@ -37,10 +40,10 @@ public class EnemySpawner : MonoBehaviour
         centipedeTimer += Time.fixedDeltaTime;
         if (centipedeTimer >= centipedeDelay)
         {
+            transform.Rotate(0,0,Random.Range(-180f,180f));
             centipedeTimer = 0;
-            Vector3 pos = new Vector3(0, 0, 0);
-            GameObject c = Instantiate(centipede, transform);
-            c.transform.position = pos;
+            GameObject c = Instantiate(centipede, spawnPos);
+            c.transform.parent = transform;
             c.GetComponent<SpriteRenderer>().sortingOrder = centipedeLayer;
             centipedeLayer -= 1;
         }
