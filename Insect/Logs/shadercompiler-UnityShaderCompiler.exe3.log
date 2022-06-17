@@ -7,3 +7,4 @@ Cmd: compileSnippet
 Cmd: disassembleShader
  name=Shader Graphs/SlimeTrail platform=d3d11 type=15 mask=6 insize=986 outsize=1849 ok=1
 
+Cmd: shutdown
