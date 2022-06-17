@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [Header("Attack")]
     [SerializeField]
     float attack_cooldown = 0.15f;
+    [SerializeField]
+    float attack_linger = 0.2f;
 
     [Header("Inventory and Equipped Items")]
     public int chips = 0;
@@ -97,7 +99,7 @@ public class PlayerController : MonoBehaviour
             attack_timer = 0;
             GameObject atk = Instantiate(attack, attack_position);
             atk.transform.parent = null;
-            Destroy(atk, 0.1f);
+            Destroy(atk, attack_linger);
         }
     }
 
