@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     float dash_cooldown;
     [SerializeField]
     float dash_power;
+    [SerializeField]
+    Vector2 min_coordinates;
+    [SerializeField]
+    Vector2 max_coordinates;
 
     [Header("Health")]
     public int health = 3;
@@ -65,6 +69,8 @@ public class PlayerController : MonoBehaviour
     Transform attack_position;
     Transform sprite;
     Transform dash_direction;
+    [SerializeField]
+    GameObject gameover_screen;
 
     //Timer variables
     float dash_timer;
@@ -74,21 +80,32 @@ public class PlayerController : MonoBehaviour
     //Tracking variables
     bool bob_down;
     float anim_progress;
+    bool isDead;
 
     private void Start()
     {
         sprite = transform.GetChild(0).transform;
         dash_direction = transform.GetChild(1).transform;
+        cam.GetComponent<CameraController>().ZoomOut();
     }
 
     private void Update()
     {
-        PointAtMouse();
-        Move();
-        Dash();
-        Battery();
-        Animate();
-        Attack();
+        if (health <= 0)
+        {
+            if (!isDead)
+                Die();
+        } else
+        {
+            PointAtMouse();
+            Move();
+            Dash();
+            Battery();
+            Animate();
+            Attack();
+
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, min_coordinates.x, max_coordinates.x), Mathf.Clamp(transform.position.y, min_coordinates.y, max_coordinates.y), -2);
+        }
     }
 
     void Attack()
@@ -128,7 +145,7 @@ public class PlayerController : MonoBehaviour
     {
         hit_timer = 0;
 
-        health -= 1;
+        //health -= 1;
 
         cam.GetComponent<CameraController>().Shake(2, 0.25f, 40, 0.05f);
 
@@ -219,5 +236,26 @@ public class PlayerController : MonoBehaviour
             if (hit_timer >= hit_cooldown)
                 Damage();
         }
+    }
+
+    void Die()
+    {
+        isDead = true;
+
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
+        }
+
+        gameObjects = GameObject.FindGameObjectsWithTag("Boss");
+
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
+        }
+
+        gameover_screen.SetActive(true);
     }
 }

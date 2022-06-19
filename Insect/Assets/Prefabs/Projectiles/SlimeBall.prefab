@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8865129402351820852}
   m_Layer: 0
   m_Name: SlimeBall
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,9 +150,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.24
 --- !u!114 &8865129402351820852
 MonoBehaviour:
   m_ObjectHideFlags: 0

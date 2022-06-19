@@ -338,10 +338,13 @@ MonoBehaviour:
   speed: 7
   dash_cooldown: 0.7
   dash_power: 2
+  min_coordinates: {x: 0, y: 0}
+  max_coordinates: {x: 0, y: 0}
   health: 3
   maxHealth: 3
   hit_cooldown: 0.1
   attack_cooldown: 0.15
+  attack_linger: 0.2
   chips: 0
   death_particles: {fileID: 0}
   hit_particles: {fileID: 8619383646533457266, guid: 629eaa263b0b78e4dbe2772de2f97a73, type: 3}
@@ -372,7 +375,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.29
+  m_Radius: 0.25
 --- !u!50 &1795626864624509302
 Rigidbody2D:
   serializedVersion: 4

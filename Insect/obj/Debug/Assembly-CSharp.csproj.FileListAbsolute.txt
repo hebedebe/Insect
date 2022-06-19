@@ -1,0 +1,2 @@
+C:\Users\Pls help\Documents\Insect\Insect\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\Pls help\Documents\Insect\Insect\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
