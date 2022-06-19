@@ -50,8 +50,8 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     m_Colors:
-    - Color_009982248fff4eebb59edd722cd69bc9: {r: 0.26235795, g: 0.49056596, b: 0.22908506, a: 0}
-    - Color_9f4daec392f74a02a7064da9f3c2d9b3: {r: 0.0066979514, g: 0.16981125, b: 0, a: 0}
+    - Color_009982248fff4eebb59edd722cd69bc9: {r: 0.7490196, g: 0.47450984, b: 0.30980393, a: 0}
+    - Color_9f4daec392f74a02a7064da9f3c2d9b3: {r: 0.5529412, g: 0.2509804, b: 0.18431373, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     bool spawn = true;
     [Space]
+    [SerializeField]
     bool spawnCentipede = true;
     float centipedeDelay = 60;
     public int centipedeLayer = 0;

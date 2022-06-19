@@ -11,8 +11,6 @@ public class CentipedeController : MonoBehaviour
     GameObject deathParticles;
     [SerializeField]
     GameObject hitParticles;
-    [SerializeField]
-    GameObject slime;
 
     [Header("Sprites")]
     [SerializeField]
@@ -43,10 +41,6 @@ public class CentipedeController : MonoBehaviour
     bool isHead;
     [SerializeField]
     bool isSetup = true;
-    [SerializeField]
-    float slimeDelay = 1f;
-    [SerializeField]
-    bool slimeTrail = false;
 
     //private variables
     Transform player;
@@ -54,7 +48,6 @@ public class CentipedeController : MonoBehaviour
     SpriteRenderer sp;
     EnemySpawner es;
     float timer;
-    float slimeTimer;
 
     void Start()
     {
@@ -92,19 +85,10 @@ public class CentipedeController : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-        slimeTimer += Time.deltaTime;
     }
 
     void FixedUpdate()
     {
-        if (slimeTimer > slimeDelay && slimeTrail)
-        {
-            GameObject slimeObj = Instantiate(slime, transform);
-            slimeObj.transform.parent = null;
-            slimeObj.transform.position = new Vector3(transform.position.x, transform.position.y, 1);
-            Destroy(slimeObj, 5);
-            slimeTimer = 0;
-        }
         if (isHead)
         {
 
