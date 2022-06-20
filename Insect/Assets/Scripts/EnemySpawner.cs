@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
     [Space]
     [SerializeField]
     bool spawnCentipede = true;
+    [SerializeField]
     float centipedeDelay = 60;
     public int centipedeLayer = 0;
 
@@ -53,8 +54,8 @@ public class EnemySpawner : MonoBehaviour
         if (centipedeTimer >= centipedeDelay)
         {
             //transform.Rotate(0,0,Random.Range(-180f,180f));
-            if (Random.Range(0,1) == 1)
-                spawnPos.transform.position = new Vector3(-17, Random.Range(0, -5.4f), -1);
+            if (Random.Range(0,1) == 0)
+                spawnPos.transform.position = new Vector3(-21, Random.Range(0, -5.4f), -1);
             else
                 spawnPos.transform.position = new Vector3(17, Random.Range(0, -5.4f), -1);
             centipedeTimer = 0;
