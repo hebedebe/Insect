@@ -238,13 +238,13 @@ MonoBehaviour:
   spitScreenshake: 0.2
   laserScreenShake: 0.3
   spitDelay: 4
-  laserDelay: 20
+  laserDelay: 10
   bigLaserDuration: 4
   smallLaserDuration: 3
   summoningCircleDelay: 7
   bigSummoningCircleDelay: 15
   bigLaserSpeed: 20
-  bigLaserSpeedPhase3: 0
+  bigLaserSpeedPhase3: 13
   smallLaserSpeed: 50
   phase: 1
   spawnedPhase1: 0

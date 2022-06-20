@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField]
     GameObject centipede;
+    [SerializeField]
+    GameObject Boss1;
 
     [Header("Spawn Settings")]
     [SerializeField]
@@ -25,6 +27,15 @@ public class EnemySpawner : MonoBehaviour
     {
         centipedeTimer = centipedeDelay;
         spawnPos = transform.GetChild(0);
+        StartCoroutine(Boss1Timer());
+    }
+
+    IEnumerator Boss1Timer()
+    {
+        yield return new WaitForSeconds(60*5);
+        GameObject b = Instantiate(Boss1, new Vector3(0,4.75f,-2), Quaternion.identity);
+        b.transform.localScale = new Vector3(2, 2, 2);
+        spawn = false;
     }
 
     void FixedUpdate()
@@ -41,7 +52,11 @@ public class EnemySpawner : MonoBehaviour
         centipedeTimer += Time.fixedDeltaTime;
         if (centipedeTimer >= centipedeDelay)
         {
-            transform.Rotate(0,0,Random.Range(-180f,180f));
+            //transform.Rotate(0,0,Random.Range(-180f,180f));
+            if (Random.Range(0,1) == 1)
+                spawnPos.transform.position = new Vector3(-17, Random.Range(0, -5.4f), -1);
+            else
+                spawnPos.transform.position = new Vector3(17, Random.Range(0, -5.4f), -1);
             centipedeTimer = 0;
             GameObject c = Instantiate(centipede, spawnPos);
             c.transform.parent = transform;
